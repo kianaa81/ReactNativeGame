@@ -26,6 +26,11 @@ class Game extends React.Component {
     return this.state.selectedNumbers.indexOf(numberIndex) >= 0;
   };
 
+  selectNumber = (numberIndex) => {
+    this.setState((prevState) => ({
+      selectedNumbers: [...prevState.selectedNumbers, numberIndex],
+    }));
+  };
 
   render() {
     return (
@@ -36,7 +41,9 @@ class Game extends React.Component {
         <RandomNumber
         key={index}
         number={randomNumber}
-        isSelected={this.isNumberSelected(index)}/>
+        isDisabled={this.isNumberSelected(index)}
+        onPress={this.selectNumber}
+        />
         ))}
       </View>
       </View>
