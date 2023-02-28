@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Text, StyleSheet} from 'react-native';
 
 class RandomNumber extends React.Component {
-   static PropTypes = {
+   static propTypes = {
        number: PropTypes.number.isRequired,
    };
    
