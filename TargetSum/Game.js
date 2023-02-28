@@ -53,15 +53,6 @@ randomContainer: {
   justifyContent: 'space-around',
 },
 
-random: {
-  backgroundColor: 'rgb(128, 87, 167)',
-  width: 110,
-  marginHorizontal: 25,
-  marginVertical: 25,
-  fontSize: 35,
-  textAlign: 'center',
-},
-
 });
 
 export default Game;
