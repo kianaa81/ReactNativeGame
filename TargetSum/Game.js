@@ -24,7 +24,7 @@ class Game extends React.Component {
 
   isNumberSelected = (numberIndex) => {
     return this.state.selectedNumbers.indexOf(numberIndex) >= 0;
-  }
+  };
 
 
   render() {
@@ -32,9 +32,12 @@ class Game extends React.Component {
       <View style={styles.container}>
         <Text style={styles.target}>{this.target}</Text>
         <View style={styles.randomContainer}>
-        {this.randomNumbers.map((randomNumber, index) =>
-        <RandomNumber key={index} number={randomNumber} />
-        )}
+        {this.randomNumbers.map((randomNumber, index) => (
+        <RandomNumber
+        key={index}
+        number={randomNumber}
+        isSelected={this.isNumberSelected(index)}/>
+        ))}
       </View>
       </View>
     );
