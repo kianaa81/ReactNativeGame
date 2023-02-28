@@ -4,11 +4,16 @@ import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 class RandomNumber extends React.Component {
   static propTypes = {
+    id: PropTypes.number.isRequired,
     number: PropTypes.number.isRequired,
     isDisabled: PropTypes.bool.isRequired,
+    onPress: PropTypes.func.isRequired,
 };
 
-  handlePress = () => {};
+  handlePress = () => {
+      if (this.props.isDisabled) {return; }
+      this.props.onPress(this.props.id);
+  };
 
   render() {
     return (
