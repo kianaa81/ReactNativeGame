@@ -10,7 +10,13 @@ class App extends React.Component {
     });
   }
   render() {
-    return (<Game key={this.state.gameId} randomNumberCount={6} initialSeconds={10} />
+    return (
+    <Game
+    onPlayAgain = {this.state.gameId}
+    key={this.state.gameId}
+    randomNumberCount={6}
+    initialSeconds={10}
+    />
       );
   }
 }
