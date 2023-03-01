@@ -17,6 +17,8 @@ class Game extends React.Component {
     remainingSeconds: this.props.initialSeconds,
   };
 
+  gameStatus = 'PLAYING';
+
   randomNumbers = Array.from({length: this.props.randomNumberCount})
   .map(() => 1 + Math.floor(10 * Math.random()));
 
@@ -50,11 +52,17 @@ class Game extends React.Component {
     }));
   };
 
-  gameStatus = () => {
-    const sumSelected = this.state.selectedIds.reduce((acc, curr) =>{
+  componentWillUpdate(nextProps, nextState){
+  if (nextState.selectedIds !== this.state.selectedIds || nextState.remainingSeconds === 0 )
+  {
+      this.gameStatus = this.calcGameStatus(nextState);
+    }
+  }
+  calcGameStatus = (nextState) => {
+    const sumSelected = nextState.selectedIds.reduce((acc, curr) =>{
       return acc + this.randomNumbers[curr];
     }, 0);
-    if (this.state.remainingSeconds === 0) {
+    if (nextState.remainingSeconds === 0) {
       return 'LOST';
     }
     if (sumSelected < this.target){
@@ -69,7 +77,7 @@ class Game extends React.Component {
   };
 
   render() {
-    const gameStatus = this.gameStatus();
+    const gameStatus = this.gameStatus;
     return (
       <View style={styles.container}>
         <Text style={[styles.target, styles[`STATUS_${gameStatus}`]]}>
