@@ -35,8 +35,18 @@ class Game extends React.Component {
   gameStatus = () => {
     const sumSelected = this.state.selectedIds.reduce((acc, curr) =>{
       return acc + this.randomNumbers[curr];
-    }, 0); }
-    
+    }, 0);
+    if (sumSelected < this.target){
+      return 'PLAYING';
+    }
+    if (sumSelected === this.target) {
+      return 'WON';
+    }
+    if (sumSelected > this.target) {
+      return 'LOST';
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
