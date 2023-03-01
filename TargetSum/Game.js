@@ -10,6 +10,7 @@ class Game extends React.Component {
   static propTypes = {
     randomNumberCount: PropTypes.number.isRequired,
     initialSeconds: PropTypes.number.isRequired,
+    onPlayAgain: PropTypes.func.isRequired,
   };
 
   state = {
@@ -97,7 +98,7 @@ class Game extends React.Component {
         />
         ))}
       </View>
-      <Button title="Play Again" onPress={() => {} }/>
+      <Button title="Play Again" onPress={this.props.onPlayAgain}/>
       <Text>{this.state.remainingSeconds}</Text>
       </View>
     );
