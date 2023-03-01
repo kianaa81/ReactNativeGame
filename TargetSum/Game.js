@@ -32,8 +32,11 @@ class Game extends React.Component {
     }));
   };
 
-
-
+  gameStatus = () => {
+    const sumSelected = this.state.selectedIds.reduce((acc, curr) =>{
+      return acc + this.randomNumbers[curr];
+    }, 0); }
+    
   render() {
     return (
       <View style={styles.container}>
