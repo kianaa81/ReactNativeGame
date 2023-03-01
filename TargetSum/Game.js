@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, Button, StyleSheet} from 'react-native';
 
 import RandomNumber from './RandomNumber';
 
@@ -97,6 +97,7 @@ class Game extends React.Component {
         />
         ))}
       </View>
+      <Button title="Play Again" onPress={() => {} }/>
       <Text>{this.state.remainingSeconds}</Text>
       </View>
     );
