@@ -12,8 +12,8 @@ class App extends React.Component {
   render() {
     return (
     <Game
-    onPlayAgain = {this.state.gameId}
     key={this.state.gameId}
+    onPlayAgain = {this.resetGame}
     randomNumberCount={6}
     initialSeconds={10}
     />
