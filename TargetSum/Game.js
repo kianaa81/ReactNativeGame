@@ -28,7 +28,7 @@ class Game extends React.Component {
 
   selectNumber = (numberIndex) => {
     this.setState((prevState) => ({
-      selectedIds: [...prevState.selectedNumbers, numberIndex],
+      selectedIds: [...prevState.selectedIds, numberIndex],
     }));
   };
 
@@ -48,6 +48,7 @@ class Game extends React.Component {
   };
 
   render() {
+    const gameStatus = this.gameStatus();
     return (
       <View style={styles.container}>
         <Text style={styles.target}>{this.target}</Text>
@@ -62,6 +63,7 @@ class Game extends React.Component {
         />
         ))}
       </View>
+      <Text>{gameStatus}</Text>
       </View>
     );
   }
